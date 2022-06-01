@@ -1,0 +1,8 @@
+name: Script
+
+on:
+    push:
+        branches:
+            - master
+    schedule:
+    - cron: "*/10 * * * *"
