@@ -53,4 +53,18 @@ function checkCount($u, $p)
     return $result;
 }
 
+function notify($telegram_api, $chat_id, $msg)
+{
+    $cURLConnection = curl_init();
+    curl_setopt(
+        $cURLConnection,
+        CURLOPT_URL,
+        "https://api.telegram.org/bot" . $telegram_api . "/sendMessage?chat_id=" . $chat_id . "&parse_mode=html&text=" . urlencode($msg)
+    );
+    curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+    $json = curl_exec($cURLConnection);
+    curl_close($cURLConnection);
+	
+}
+
 ?>
