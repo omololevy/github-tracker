@@ -21,4 +21,15 @@ jobs:
           run: |
               php script.php omololevy ${{ secrets.flx_token }} ${{ secrets.telegram_api }} ${{ secrets.chat_id}}
               
+        - name: commit files
+          run: |
+                git config --local user.email "cotechlevy@gmail.com"
+                git config --local user.name "omololevy"
+                git add -A
+                git commit -m "update script" -a
         
+        - name: push changes
+          uses: ad-m/github-push-action@v0.6.0
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: master 
