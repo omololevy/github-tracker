@@ -12,4 +12,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
 
+        - name: checkout repo content
+          uses: actions/checkout@v2 
+        - name: PHP Runner
+          uses: franzliedke/gh-action-php@0.2.0
+
+        - name: execute php script 
+          run: |
+              php script.php omololevy ${{ secrets.flx_token }} ${{ secrets.telegram_api }} ${{ secrets.chat_id}}
+              
         
