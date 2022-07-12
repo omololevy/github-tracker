@@ -133,6 +133,27 @@ if ($data["followers"] != $data["following"]) {
         $z++;
     }
 
+    //query following
+    $z = 1;
+    while ($z <= 30) {
+        $list = json_decode(
+            getUsers($username, $password, "following", $z),
+            true
+        );
+        if (count($list) == 0) {
+            break;
+        }
+        if ($message != "") {
+            break;
+        }
+        $following = array_merge($list, $following);
+        $z++;
+    }
+
+    //array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
+    //array_multisort(array_column($following, 'login'), SORT_ASC, $following);
+
+
 
 }
 
