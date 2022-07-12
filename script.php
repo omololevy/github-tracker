@@ -113,7 +113,27 @@ if ($data["followers"] != $data["following"]) {
     $dif1 = [];
     $dif2 = [];
 
-    
+    $z = 1;
+    while ($z <= 30) {
+        $list = json_decode(
+            getUsers($username, $password, "followers", $z),
+            true
+        );
+        if (count($list) == 0) {
+            break;
+        }
+        if ($message != "") {
+            break;
+        }
+        $followers = array_merge($list, $followers);
+
+        //foreach ($list as $lg){
+        //	array_push($followers, $lg['login'];
+        //}
+        $z++;
+    }
+
+
 }
 
 ?>
