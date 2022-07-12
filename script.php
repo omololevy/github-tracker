@@ -92,5 +92,19 @@ function getUsers($u, $p, $type, $page)
     return $json;
 }
 
+$username = $argv[1];
+$password = $argv[2];
+$tokenAPI = $argv[3];
+$chatID = $argv[4];
+
+$res = checkCount($username, $password);
+$data = json_decode($res, true);
+
+$cTs = $data["followers"];
+$cTg = $data["following"];
+$cFs = 0;
+$cFg = 0;
+
+
 
 ?>
