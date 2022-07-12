@@ -153,7 +153,11 @@ if ($data["followers"] != $data["following"]) {
     //array_multisort(array_column($followers, 'login'), SORT_ASC, $followers);
     //array_multisort(array_column($following, 'login'), SORT_ASC, $following);
 
+    $change = "";
 
+    foreach ($followers as $fl) {
+        $Followers[$fl["login"]] = $fl["html_url"];
+    }
 
 }
 
