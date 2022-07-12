@@ -92,5 +92,9 @@ function getUsers($u, $p, $type, $page)
     return $json;
 }
 
+$username = $argv[1];
+$password = $argv[2];
+$tokenAPI = $argv[3];
+$chatID = $argv[4];
 
 ?>
