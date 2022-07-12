@@ -105,6 +105,15 @@ $cTg = $data["following"];
 $cFs = 0;
 $cFg = 0;
 
+if ($data["followers"] != $data["following"]) {
+    $followers = [];
+    $Followers = [];
+    $Following = [];
+    $following = [];
+    $dif1 = [];
+    $dif2 = [];
 
+    
+}
 
 ?>
