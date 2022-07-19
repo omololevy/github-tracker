@@ -193,6 +193,18 @@ if ($data["followers"] != $data["following"]) {
 //$res = $username;
 
 
+date_default_timezone_set("UTC");
+
+function generateReadme($used, $limit, $cFs, $cTs, $cFg, $cTg) {
+    $readme = "# auto-follow-unfollow\n";
+    $readme .= "Follow and unfollow users automatically\n\n";
+
+    $readme .=
+        "[![Script](https://github.com/fbiego/auto-follow-unfollow/actions/workflows/main.yml/badge.svg)](https://github.com/fbiego/auto-follow-unfollow/actions/workflows/main.yml)";
+
+    $readme .= "\n### Run details\n";
+
+    $readme .= "- Last run `" . date(DATE_RFC2822) . "`\n";
 
 
 }
