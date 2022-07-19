@@ -205,7 +205,15 @@ function generateReadme($used, $limit, $cFs, $cTs, $cFg, $cTg) {
     $readme .= "\n### Run details\n";
 
     $readme .= "- Last run `" . date(DATE_RFC2822) . "`\n";
+    $readme .= "- X-RateLimit-Used: `" . $used . "`\n";
+    $readme .= "- X-RateLimit-Limit: `" . $limit . "`\n\n";
 
+    $readme .= "|  | Followers | Following |\n";
+    $readme .= "| - | --------- | --------- |\n";
+    $readme .= "| Current | " . ($cFs + $cTs). " | " . ($cFg + $cTg) . " |\n";
+    $readme .= "| Change | " . $cFs . " | " . $cFg . "|\n";
+
+    return $readme;
 
 }
 
