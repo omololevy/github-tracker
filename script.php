@@ -158,6 +158,10 @@ if ($data["followers"] != $data["following"]) {
     foreach ($followers as $fl) {
         $Followers[$fl["login"]] = $fl["html_url"];
     }
+	
+	$changes = false;
+	$ms = "<b>New change</b>" . PHP_EOL  . PHP_EOL;
+
 
 }
 
