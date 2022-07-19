@@ -174,6 +174,17 @@ if ($data["followers"] != $data["following"]) {
 			$ms .= "⛔ Unfollow -> <a href=\"" .  $fl["html_url"] . "\">" . $fl["login"] . "</a> " . PHP_EOL;
         }
     }
+	$ms .=  PHP_EOL;
+    foreach ($followers as $fl) {
+        if (!array_key_exists($fl["login"], $Following)) {
+            $dif1[$fl["login"]] = $fl["html_url"];
+            doAction($username, $password, "PUT", $fl["login"]);
+            $change = $change . "Follow " . $fl["login"] . PHP_EOL;
+            $cFg = $cFg + 1;
+			$changes = true;
+			$ms .= "✅ Follow -> <a href=\"" .  $fl["html_url"] . "\">" . $fl["login"] . "</a> " . PHP_EOL;
+        }
+    }
 
 
 }
