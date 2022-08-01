@@ -19,7 +19,7 @@ jobs:
 
         - name: execute php script 
           run: |
-              php script.php omololevy ${{ secrets.flx_token }} ${{ secrets.telegram_api }} ${{ secrets.chat_id}}
+              php script.php omololevy
               
         - name: commit files
           run: |
