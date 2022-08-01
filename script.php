@@ -53,21 +53,6 @@ function checkCount($u, $p)
     return $result;
 }
 
-function notify($telegram_api, $chat_id, $msg)
-{
-    $cURLConnection = curl_init();
-    curl_setopt(
-        $cURLConnection,
-        CURLOPT_URL,
-        "https://api.telegram.org/bot" . $telegram_api . "/sendMessage?chat_id=" . $chat_id . "&parse_mode=html&text=" . urlencode($msg)
-    );
-    curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-    $json = curl_exec($cURLConnection);
-    curl_close($cURLConnection);
-	
-}
-
-
 function getUsers($u, $p, $type, $page)
 {
     $cURLConnection = curl_init();
@@ -185,8 +170,7 @@ if ($data["followers"] != $data["following"]) {
 			$ms .= "✅ Follow -> <a href=\"" .  $fl["html_url"] . "\">" . $fl["login"] . "</a> " . PHP_EOL;
         }
     }
-	notify($tokenAPI, $chatID, $ms);
-    //file_put_contents("change.txt", $change . $message);
+	
 } else {
     //file_put_contents("change.txt", "No changes". $message);
 }
@@ -196,11 +180,11 @@ if ($data["followers"] != $data["following"]) {
 date_default_timezone_set("UTC");
 
 function generateReadme($used, $limit, $cFs, $cTs, $cFg, $cTg) {
-    $readme = "# auto-follow-unfollow\n";
-    $readme .= "Follow and unfollow users automatically\n\n";
+    $readme = "# For tracking my github progress\n";
+    $readme .= "This should include the follow and unfollow of users automatically\n\n";
 
     $readme .=
-        "[![Script](https://github.com/fbiego/auto-follow-unfollow/actions/workflows/main.yml/badge.svg)](https://github.com/fbiego/auto-follow-unfollow/actions/workflows/main.yml)";
+        "[![Script](https://github.com/omololevy/github-tracker/actions/workflows/master.yml/badge.svg)](https://github.com/omololevy/github-tracker/actions/workflows/master.yml)";
 
     $readme .= "\n### Run details\n";
 
